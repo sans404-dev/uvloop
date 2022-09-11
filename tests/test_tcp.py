@@ -319,7 +319,8 @@ class _TestTCP:
                 ValueError, 'ssl_handshake_timeout is only meaningful'):
             self.loop.run_until_complete(
                 self.loop.create_server(
-                    lambda: None, host='::', port=0, ssl_handshake_timeout=10))
+                    lambda: None, host='::', port=0,
+                    ssl_handshake_timeout=SSL_HANDSHAKE_TIMEOUT))
 
     def test_create_server_9(self):
         async def handle_client(reader, writer):
@@ -550,7 +551,8 @@ class _TestTCP:
                 ValueError, 'ssl_handshake_timeout is only meaningful'):
             self.loop.run_until_complete(
                 self.loop.create_connection(
-                    lambda: None, host='::', port=0, ssl_handshake_timeout=10))
+                    lambda: None, host='::', port=0,
+                    ssl_handshake_timeout=SSL_HANDSHAKE_TIMEOUT))
 
     def test_transport_shutdown(self):
         CNT = 0           # number of clients that were successful
